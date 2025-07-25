@@ -11,9 +11,9 @@
       ./hardware-configuration.nix
       ./libvirt.nix
       ./wilofan.nix
+      ./planes.nix
     ];
 
-  services.userborn.enable = true;
   nix = {
     package = pkgs.lix;
     gc = {
@@ -27,27 +27,32 @@
       experimental-features = [ "nix-command" "flakes" ];
     };
   };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.tmp.cleanOnBoot = true;
+  services.acpid.enable = true;
+  hardware.cpu.amd.updateMicrocode = true;
 
-  networking.hostName = "brain-ghost"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking = {
+    hostName = "brain-ghost"; # Define your hostname.
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ ];
+      allowedUDPPorts = [ ];
+    };
+  };
+  services.tailscale.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
-    useXkbConfig = true; # use xkb.options in tty.
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  services.userborn.enable = true;
   users.mutableUsers = false;
   users.users.jade = {
     isNormalUser = true;
@@ -61,25 +66,42 @@
     hashedPassword = "$6$rounds=25000$9EIzPG6oIRxQ64i1$Js4DyQrRz6LyD1ty.TGcBOg..x8AT4QLno7Uta4O14QqT0o.gS61Heco8XX.kcY5KlYgjOdcMnGqlu1dadqMw0";
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIORqal69EoLu+l3d1vvrK2uDwIdrLmIJYitdpIAw4XeO wilofox@maryam" ];
   };
-
-  services.tailscale.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     tmux
     git
     vim
+    bind
+    file
+    gptfdisk
+    htop
+    man-pages
+    mkpasswd
+    openssl
+    pv
+    progress
+    ripgrep
+    alacritty.terminfo
+    kitty.terminfo
+    tcpdump
+    aria2
+    curl
+    wget
+    unzip
+    zip
+    p7zip
+    w3m
+    dnsutils
+    dmidecode
+    pciutils
+    usbutils
   ];
-
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
   };
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  programs.bash.completion.enable = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
