@@ -11,7 +11,7 @@
       ./hardware-configuration.nix
       ./libvirt.nix
       ./wilofan.nix
-      ./planes.nix
+      ./jade/planes.nix
     ];
 
   nix = {
