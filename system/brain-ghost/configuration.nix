@@ -20,6 +20,8 @@
       ./libvirt.nix
       # Nvidia stuff for 1060
       ./nvidia.nix
+      # Whisper 
+      ./whisper.nix
       # Custom willow fan daemon
       ./wilofan.nix
       # Stuff jade stuck on here
