@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+    nixpkgs.url = github:NixOS/nixpkgs/nixos-25.05;
   };
   outputs = { self, nixpkgs, ... }: {
     nixosConfigurations.brain-ghost = nixpkgs.lib.nixosSystem {
