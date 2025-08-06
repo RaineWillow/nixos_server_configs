@@ -17,10 +17,8 @@
     allowUnfree = true;
     # TODO: enable when cuda works
     #cudaSupport = true;
-    # TODO: enable to save compile time
-    #cudaCapabilities = [ "6.1" ];
-    # TODO: enable when cuda works
-    #cudaForwardCompat = false;
+    cudaCapabilities = [ "6.1" ];
+    cudaForwardCompat = false;
     nvidia.acceptLicense = true;
   };
 }

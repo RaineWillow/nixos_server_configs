@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ pkgs, lib, ... }: {
   services.wyoming.faster-whisper.servers.whisper = {
     enable = true;
     # TODO: replace with cuda when cuda works :(
