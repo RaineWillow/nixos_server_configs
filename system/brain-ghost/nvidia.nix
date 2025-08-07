@@ -16,7 +16,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     # TODO: enable when cuda works
-    #cudaSupport = true;
+    cudaSupport = true;
     cudaCapabilities = [ "6.1" ];
     cudaForwardCompat = false;
     nvidia.acceptLicense = true;

@@ -1,9 +1,8 @@
 { pkgs, lib, ... }: {
   services.wyoming.faster-whisper.servers.whisper = {
     enable = true;
-    # TODO: replace with cuda when cuda works :(
-    device = "cpu";
-    model = "large-v3";
+    device = "cuda";
+    model = "turbo";
     uri = "tcp://127.0.0.1:28535";
     # TODO: id like it to support en, nl, jp, de but we can restrict it to en if wilo wants
     language = "auto";
