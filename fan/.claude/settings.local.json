@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//mnt/work/github.com/RaineWillow/nixos_server_configs/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

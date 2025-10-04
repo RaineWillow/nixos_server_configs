@@ -1,0 +1,15 @@
+[[nvidia.curve]]
+temperature = 29
+speed = 10
+
+[[nvidia.curve]]
+temperature = 80
+speed = 255 
+
+[[nvidia.fan]]
+hwmon = 1
+fan = 3
+
+[[nvidia.fan]]
+hwmon = 1
+fan = 5
