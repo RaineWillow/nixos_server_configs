@@ -45,21 +45,30 @@
 
   # This makes it so you change passwords with the hash here and not manually
   users.mutableUsers = false;
-  users.users = {
-    jade = {
-      isNormalUser = true;
-      hashedPassword = "$6$rounds=25000$OhnKyrVBL2vq8wmr$g.44VDLmx.N6NjS4GzbquqHtaxXJEXVwxYAponGRuuOJIzTm6BhR2f2fIx8JEJUsBFtDlQHZiBO9Lvln0AxGT.";
-      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQ81DLRnb10XRpTTtHD56h4ciXqCeKnuQIDls/0uJ5R" ];
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  users.users =
+    let
+      jade_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQ81DLRnb10XRpTTtHD56h4ciXqCeKnuQIDls/0uJ5R";
+      willow_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIORqal69EoLu+l3d1vvrK2uDwIdrLmIJYitdpIAw4XeO wilofox@maryam";
+    in
+    {
+      jade = {
+        isNormalUser = true;
+        hashedPassword = "$6$rounds=25000$OhnKyrVBL2vq8wmr$g.44VDLmx.N6NjS4GzbquqHtaxXJEXVwxYAponGRuuOJIzTm6BhR2f2fIx8JEJUsBFtDlQHZiBO9Lvln0AxGT.";
+        openssh.authorizedKeys.keys = [ jade_key ];
+        extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      };
+      willow = {
+        isNormalUser = true; # Definitely not true but okay
+        extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+        hashedPassword = "$6$rounds=25000$9EIzPG6oIRxQ64i1$Js4DyQrRz6LyD1ty.TGcBOg..x8AT4QLno7Uta4O14QqT0o.gS61Heco8XX.kcY5KlYgjOdcMnGqlu1dadqMw0";
+        openssh.authorizedKeys.keys = [ willow_key ];
+      };
+      foxcraft = {
+        isNormalUser = true; # Definitely not true but okay
+        hashedPassword = "!";
+        openssh.authorizedKeys.keys = [ jade_key willow_key ];
+      };
     };
-    willow = {
-      isNormalUser = true; # Definitely not true but okay
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-      hashedPassword = "$6$rounds=25000$9EIzPG6oIRxQ64i1$Js4DyQrRz6LyD1ty.TGcBOg..x8AT4QLno7Uta4O14QqT0o.gS61Heco8XX.kcY5KlYgjOdcMnGqlu1dadqMw0";
-      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIORqal69EoLu+l3d1vvrK2uDwIdrLmIJYitdpIAw4XeO wilofox@maryam" ];
-      linger = true;
-    };
-  };
   # Extra packages to install to system prefix
   environment.systemPackages = with pkgs; [ ];
 
