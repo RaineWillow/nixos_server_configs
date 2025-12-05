@@ -57,6 +57,7 @@
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
       hashedPassword = "$6$rounds=25000$9EIzPG6oIRxQ64i1$Js4DyQrRz6LyD1ty.TGcBOg..x8AT4QLno7Uta4O14QqT0o.gS61Heco8XX.kcY5KlYgjOdcMnGqlu1dadqMw0";
       openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIORqal69EoLu+l3d1vvrK2uDwIdrLmIJYitdpIAw4XeO wilofox@maryam" ];
+      linger = true;
     };
   };
   # Extra packages to install to system prefix
