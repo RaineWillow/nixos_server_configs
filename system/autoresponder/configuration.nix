@@ -63,11 +63,6 @@
         hashedPassword = "$6$rounds=25000$9EIzPG6oIRxQ64i1$Js4DyQrRz6LyD1ty.TGcBOg..x8AT4QLno7Uta4O14QqT0o.gS61Heco8XX.kcY5KlYgjOdcMnGqlu1dadqMw0";
         openssh.authorizedKeys.keys = [ willow_key ];
       };
-      foxcraft = {
-        isNormalUser = true; # Definitely not true but okay
-        hashedPassword = "!";
-        openssh.authorizedKeys.keys = [ jade_key willow_key ];
-      };
     };
   # Extra packages to install to system prefix
   environment.systemPackages = with pkgs; [ ];
