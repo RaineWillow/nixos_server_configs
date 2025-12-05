@@ -1,8 +1,9 @@
 { config, pkgs, ... }: {
   hardware.graphics.enable = true;
   hardware.nvidia = {
-    # used https://www.nvidia.com/en-us/drivers/results/ to get the most recent driver less than 560
-    package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
+    enabled = true;
+    open = true;
+    #package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
     modesetting.enable = true;
     nvidiaSettings = false;
   };

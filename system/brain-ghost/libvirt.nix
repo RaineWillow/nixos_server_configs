@@ -36,4 +36,8 @@ in
     ("vfio-pci.ids=" + builtins.concatStringsSep "," gpuIDs)
     "pcie_acs_override=downstream"
   ];
+  boot.kernel.sysctl = {
+    # 2KiB hugepages, add enough for 24gb plus some
+    "vm.nr_hugepages" = 13 * 1024;
+  };
 }
