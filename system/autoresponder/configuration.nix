@@ -22,6 +22,8 @@
       ./ai.nix
       # Custom willow fan daemon
       ./wilofan.nix
+      # Minecraft
+      ./minecraft.nix
     ];
   # Set machine name here
   networking.hostName = "autoresponder";
