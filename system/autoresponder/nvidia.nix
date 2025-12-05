@@ -1,7 +1,6 @@
 { config, pkgs, ... }: {
   hardware.graphics.enable = true;
   hardware.nvidia = {
-    enabled = true;
     open = true;
     #package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
     modesetting.enable = true;
