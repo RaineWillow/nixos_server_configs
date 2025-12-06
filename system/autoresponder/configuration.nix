@@ -48,7 +48,7 @@
   users.users =
     let
       jade_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQ81DLRnb10XRpTTtHD56h4ciXqCeKnuQIDls/0uJ5R";
-      willow_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIORqal69EoLu+l3d1vvrK2uDwIdrLmIJYitdpIAw4XeO wilofox@maryam";
+      willow_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJY7Yfq2fnAIYsSw+wGygSzDJgtdix3gmUUhWV+TpkAB";
     in
     {
       jade = {
