@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    graalvmPackages.graalvm-oracle
+    graalvmPackages.graalvm-oracle_17
   ];
   networking.firewall = {
     allowedTCPPorts = [ 25565 ];
