@@ -11,7 +11,7 @@
 
   # Use autoresponder as a binary cache
   nix.settings = {
-    substituters = [ "http://10.0.0.2:5000" ];
+    substituters = [ "http://192.168.122.228:5000" ];
     trusted-public-keys = [ "autoresponder:cache:IeEWx3ykSpytCgG2bwhr1OUMvUPaMEZDTrFKiO83VyA=" ];
   };
 }

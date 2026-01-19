@@ -11,7 +11,7 @@
 
   # Use brain-ghost as a binary cache
   nix.settings = {
-    substituters = [ "http://10.0.0.1:5000" ];
+    substituters = [ "http://192.168.122.1:5000" ];
     trusted-public-keys = [ "brain-ghost:cache:OMxLN2hDV2lcyYZIE3abMh7AYn/qP9W+bWVMhIuj1fk=" ];
   };
 }
