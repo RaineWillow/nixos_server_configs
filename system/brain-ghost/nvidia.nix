@@ -12,4 +12,9 @@
     cudaSupport = true;
     nvidia.acceptLicense = true;
   };
+  nixpkgs.overlays = [
+    (final: prev: {
+      cudaPackages = final.cudaPackages_12_7;
+    })
+  ];
 }
