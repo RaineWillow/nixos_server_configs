@@ -79,6 +79,9 @@
             (_: _: {
               fancontrol = self.packages.${system}.fancontrol;
             })
+            (final: prev: {
+              cudaPackages = final.cudaPackages_12_6;
+            })
           ];
         }
         # Import the actual system config
