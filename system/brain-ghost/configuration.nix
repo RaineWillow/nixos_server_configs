@@ -23,7 +23,7 @@
       # Whisper 
       ./whisper.nix
       # Openwebui and other ai stuff
-      # ./ai.nix
+      ./ai.nix
       # Custom willow fan daemon
       ./wilofan.nix
       # Stuff jade stuck on here
