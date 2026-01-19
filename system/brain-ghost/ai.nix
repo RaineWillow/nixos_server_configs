@@ -12,5 +12,5 @@ in
       OLLAMA_API_BASE_URL = "http://autoresponder.${tailscale_domain}:11434";
     };
   };
-  networking.firewall.interfaces.tailscale0.allowedTCPPorts = config.services.open-webui.port;
+  networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ config.services.open-webui.port ];
 }
