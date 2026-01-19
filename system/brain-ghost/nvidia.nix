@@ -14,9 +14,4 @@
     nvidia.acceptLicense = true;
     allowUnsupportedSystem = true;
   };
-  nixpkgs.overlays = [
-    (final: prev: {
-      cudaPackages = final.cudaPackages_12;
-    })
-  ];
 }
