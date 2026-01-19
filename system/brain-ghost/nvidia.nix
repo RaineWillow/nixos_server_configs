@@ -15,7 +15,7 @@
   };
   nixpkgs.overlays = [
     (final: prev: {
-      cudaPackages = final.cudaPackages_12_9;
+      cudaPackages = final.cudaPackages_13;
     })
   ];
 }
