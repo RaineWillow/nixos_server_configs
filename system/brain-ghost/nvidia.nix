@@ -12,6 +12,7 @@
     cudaSupport = true;
     cudaCapabilities = [ "6.1" ];
     nvidia.acceptLicense = true;
+    allowUnsupportedSystem = true;
   };
   nixpkgs.overlays = [
     (final: prev: {
