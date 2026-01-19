@@ -49,6 +49,10 @@ in
         SyslogIdentifier = "fancontrol-client";
       };
 
+      environment = {
+        LD_LIBRARY_PATH = "${config.hardware.nvidia.package}/lib";
+      };
+
       script = ''
         exec ${cfg.package}/bin/nvidia-client \
           --verbosity ${cfg.logLevel} \
