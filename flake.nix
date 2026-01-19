@@ -71,10 +71,6 @@
               fancontrol = self.packages.${system}.fancontrol;
             })
           ];
-          services.fancontrol-client = {
-            enable = true;
-            serverAddress = "192.168.122.1:26232";
-          };
         }
         # Import the actual system config
         ./system/autoresponder/configuration.nix
