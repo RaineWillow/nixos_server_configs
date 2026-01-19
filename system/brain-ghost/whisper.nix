@@ -3,7 +3,7 @@ let
   port = 28535;
   wyoming-faster-whisper = pkgs.wyoming-faster-whisper.overrideAttrs (final: prev: rec {
     version = "2.4.0";
-    src = final.fetchFromGitHub {
+    src = pkgs.fetchFromGitHub {
       owner = "rhasspy";
       repo = "wyoming-faster-whisper";
       rev = "refs/tags/v${version}";
