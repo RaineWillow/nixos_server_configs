@@ -28,6 +28,8 @@
       ./wilofan.nix
       # Stuff jade stuck on here
       ./jade/planes.nix
+      # Binary cache sharing
+      ./cache.nix
     ];
   # Set machine name here
   networking.hostName = "brain-ghost";

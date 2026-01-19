@@ -24,6 +24,8 @@
       ./wilofan.nix
       # Minecraft
       ./minecraft.nix
+      # Binary cache sharing
+      ./cache.nix
     ];
   # Set machine name here
   networking.hostName = "autoresponder";
