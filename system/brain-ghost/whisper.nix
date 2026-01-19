@@ -12,14 +12,16 @@ let
   });
 in
 {
-  services.wyoming.faster-whisper.servers.whisper = {
-    enable = true;
+  services.wyoming.faster-whisper = {
     package = wyoming-faster-whisper;
-    device = "cuda";
-    model = "turbo";
-    uri = "tcp://0.0.0.0:${builtins.toString port}";
-    # TODO: id like it to support en, nl, jp, de but we can restrict it to en if wilo wants
-    language = "auto";
+    servers.whisper = {
+      enable = true;
+      device = "cuda";
+      model = "turbo";
+      uri = "tcp://0.0.0.0:${builtins.toString port}";
+      # TODO: id like it to support en, nl, jp, de but we can restrict it to en if wilo wants
+      language = "auto";
+    };
   };
   systemd.services.wyoming-faster-whisper-whisper = {
     environment = {
