@@ -10,7 +10,11 @@
   nixpkgs.config = {
     allowUnfree = true;
     cudaSupport = true;
-    cudaCapabilities = [ "6.1" ];
     nvidia.acceptLicense = true;
   };
+  nixpkgs.overlays = [
+    (final: prev: {
+      cudaPackages = final.cudaPackages_12_6;
+    })
+  ];
 }
