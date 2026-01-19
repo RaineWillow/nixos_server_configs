@@ -1,10 +1,16 @@
-{ ... }: {
+{ config, ... }:
+let
+  tailscale_domain = "halfmoon-mixolydian.ts.net";
+in
+{
   services.open-webui = {
     enable = true;
     # Use the tailscale ip
-    host = "100.81.155.79";
+    host = "brain-ghost.${tailscale_domain}";
+    port = 1111;
     environment = {
-      OLLAMA_API_BASE_URL = "http://autoresponder.halfmoon-mixolydian.ts.net:11434";
+      OLLAMA_API_BASE_URL = "http://autoresponder.${tailscale_domain}:11434";
     };
   };
+  networking.firewall.interfaces.tailscale0.allowedTCPPorts = config.services.open-webui.port;
 }
