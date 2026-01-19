@@ -1,10 +1,20 @@
 { pkgs, lib, ... }:
 let
   port = 28535;
+  wyoming-faster-whisper = pkgs.wyoming-faster.whisper.overrideAttrs (final: prev: rec {
+    version = "2.4.0";
+    src = final.fetchFromGitHub {
+      owner = "rhasspy";
+      repo = "wyoming-faster-whisper";
+      rev = "refs/tags/v${version}";
+      hash = "sha256-Ai28i+2/oWI2Y61x7U5an5MBHfuBaGy6qZZwZydS308=";
+    };
+  });
 in
 {
   services.wyoming.faster-whisper.servers.whisper = {
     enable = true;
+    package = wyoming-faster-whisper;
     device = "cuda";
     model = "turbo";
     uri = "tcp://0.0.0.0:${builtins.toString port}";
