@@ -10,8 +10,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     cudaSupport = true;
-    cudaCapabilities = [ "6.1" ];
+    #cudaCapabilities = [ "6.1" ];
     nvidia.acceptLicense = true;
-    allowUnsupportedSystem = true;
   };
 }
