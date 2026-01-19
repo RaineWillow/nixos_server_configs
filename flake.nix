@@ -64,13 +64,17 @@
             nixPath = [ "nixpkgs=${nixpkgs}" ];
           };
         }
-        ./fan/module.nix
+        ./fan/module-client.nix
         {
           nixpkgs.overlays = [
             (_: _: {
               fancontrol = self.packages.${system}.fancontrol;
             })
           ];
+          services.fancontrol-client = {
+            enable = true;
+            serverAddress = "192.168.122.1:26232";
+          };
         }
         # Import the actual system config
         ./system/autoresponder/configuration.nix
