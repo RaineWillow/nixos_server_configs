@@ -18,10 +18,8 @@
       ./networking.nix
       # Nvidia stuff
       ./nvidia.nix
-      # LLM stuff 
+      # LLM stuff
       ./ai.nix
-      # Custom willow fan daemon
-      ./wilofan.nix
       # Minecraft
       ./minecraft.nix
       # Binary cache sharing

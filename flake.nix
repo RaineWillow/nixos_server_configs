@@ -72,14 +72,6 @@
             nixPath = [ "nixpkgs=${nixpkgs}" ];
           };
         }
-        ./fan/module-client.nix
-        {
-          nixpkgs.overlays = [
-            (_: _: {
-              fancontrol = self.packages.${system}.fancontrol;
-            })
-          ];
-        }
         # Import the actual system config
         ./system/autoresponder/configuration.nix
       ];
