@@ -18,8 +18,6 @@
       ./networking.nix
       # Nvidia stuff
       ./nvidia.nix
-      # LLM stuff
-      ./ai.nix
       # Minecraft
       ./minecraft.nix
       # Binary cache sharing
